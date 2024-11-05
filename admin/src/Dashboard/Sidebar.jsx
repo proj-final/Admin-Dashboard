@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaUser, FaUtensils, FaMotorcycle, FaClipboardList } from 'react-icons/fa'; // Icons for Client, Chefs, Delivery Boy, Order
+import { FaUser, FaUtensils, FaMotorcycle, FaClipboardList } from 'react-icons/fa'; 
 
 const Sidebar = () => {
     return (
