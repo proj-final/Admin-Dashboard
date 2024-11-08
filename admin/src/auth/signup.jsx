@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import SweetAlert2 from 'react-sweetalert2';
 import admin from "../image/traditiona.jpg";
 import adminImage from "../image/admin-icon-strategy-collection-thin-600nw-2307398667.webp";
 
@@ -8,6 +9,7 @@ const Signup = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [swalProps, setSwalProps] = useState({})
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
