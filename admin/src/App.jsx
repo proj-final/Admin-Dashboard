@@ -3,11 +3,11 @@ import './App.css';
 import Dashboard from './Dashboard/Dashborad';
 import Login from './auth/login'; 
 import Signup from './auth/signup'; 
-import Chief from './components/Chief';
-import Dishes from './components/Dishes'; 
+import Chief from './components/chief';
+import Dishes from './components/dishes'; 
 import Client from './components/client'; 
 import Delivery from './components/delivery-boy'; 
-import Order from './components/order'; 
+import Order from './components/orders'; 
 
 function App() {
     // Check if user is logged in by checking 'islogedIn' value in localStorage
@@ -19,8 +19,9 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Login />} /> 
                     <Route path="/" element={login ? <Dashboard /> : <Login />} /> 
-                    <Route path="/signup" element={<Signup />} /> 
-                    <Route path="/dashboard" element={login ? <Dashboard /> : <Login />} />
+                    <Route path="/Dashboard" element={<Dashboard />}/>
+                     
+                    
                     <Route path="/chief" element={<Chief />} />
                     <Route path="/dishes" element={<Dishes />} />
                     <Route path="/client" element={<Client />} />

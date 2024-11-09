@@ -3,8 +3,8 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import axios from "axios";
 import { FaUtensils, FaUserFriends, FaMotorcycle, FaHamburger, FaClipboardList } from "react-icons/fa";
-import ClientBarChart from "./BarChart";  // Import the Bar Chart component
-import ClientOrderPieChart from "./ClientOrderPieChart";  // Import the Pie Chart component
+import ClientBarChart from "./BarChart";
+import ClientOrderPieChart from "./ClientOrderPieChart";
 
 const Dashboard = () => {
   const [chefCount, setChefCount] = useState(0);
@@ -67,52 +67,54 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="relative h-screen flex items-center justify-between bg-cover bg-center">
-      <Sidebar />
-      <div className="flex-1 flex flex-col min-h-screen ml-64">
+    <div className="grid h-screen grid-cols-12 bg-gradient-to-r from-orange-600 to-yellow-500 text-white">
+      <div className="col-span-2">
+        <Sidebar />
+      </div>
+      <div className="col-span-10 flex flex-col">
         <Navbar />
-        <main className="p-6 pt-24">
-          <h1 className="text-3xl font-semibold text-gray-800 mb-6"></h1>
+        <main className="p-8 space-y-6">
+          <div className="text-4xl font-bold text-gray-100 mb-8">Dashboard Overview</div>
 
-          {/* Existing Cards */}
+          {/* Statistic Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-            {/* Card for Total Chefs, Clients, Delivery Boys, Dishes, Orders... */}
-            <div className="bg-gradient-to-r from-emerald-500 to-teal-400 p-8 rounded-xl shadow-xl hover:scale-105 transform transition duration-300 ease-in-out flex flex-col items-center">
-              <FaUtensils className="text-white text-5xl mb-4" />
-              <h2 className="text-xl font-semibold text-white">Total Chefs</h2>
-              <p className="text-5xl font-bold text-white">{chefCount}</p>
+            {/* Card Template */}
+            <div className="bg-gradient-to-r from-orange-500 to-orange-400 p-6 rounded-lg shadow-lg flex flex-col items-center transform hover:scale-105 transition-all duration-300">
+              <FaUtensils className="text-white text-4xl mb-4" />
+              <h2 className="text-lg font-semibold">Total Chefs</h2>
+              <p className="text-3xl font-bold">{chefCount}</p>
             </div>
-            <div className="bg-gradient-to-r from-sky-500 to-indigo-400 p-8 rounded-xl shadow-xl hover:scale-105 transform transition duration-300 ease-in-out flex flex-col items-center">
-              <FaUserFriends className="text-white text-5xl mb-4" />
-              <h2 className="text-xl font-semibold text-white">Total Clients</h2>
-              <p className="text-5xl font-bold text-white">{clientCount}</p>
+            <div className="bg-gradient-to-r from-yellow-500 to-yellow-400 p-6 rounded-lg shadow-lg flex flex-col items-center transform hover:scale-105 transition-all duration-300">
+              <FaUserFriends className="text-white text-4xl mb-4" />
+              <h2 className="text-lg font-semibold">Total Clients</h2>
+              <p className="text-3xl font-bold">{clientCount}</p>
             </div>
-            <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-8 rounded-xl shadow-xl hover:scale-105 transform transition duration-300 ease-in-out flex flex-col items-center">
-              <FaMotorcycle className="text-white text-5xl mb-4" />
-              <h2 className="text-xl font-semibold text-white">Total Delivery Boys</h2>
-              <p className="text-5xl font-bold text-white">{deliveryBoyCount}</p>
+            <div className="bg-gradient-to-r from-red-500 to-orange-400 p-6 rounded-lg shadow-lg flex flex-col items-center transform hover:scale-105 transition-all duration-300">
+              <FaMotorcycle className="text-white text-4xl mb-4" />
+              <h2 className="text-lg font-semibold">Total Delivery Boys</h2>
+              <p className="text-3xl font-bold">{deliveryBoyCount}</p>
             </div>
-            <div className="bg-gradient-to-r from-purple-600 to-pink-500 p-8 rounded-xl shadow-xl hover:scale-105 transform transition duration-300 ease-in-out flex flex-col items-center">
-              <FaHamburger className="text-white text-5xl mb-4" />
-              <h2 className="text-xl font-semibold text-white">Total Dishes</h2>
-              <p className="text-5xl font-bold text-white">{dishCount}</p>
+            <div className="bg-gradient-to-r from-orange-600 to-orange-500 p-6 rounded-lg shadow-lg flex flex-col items-center transform hover:scale-105 transition-all duration-300">
+              <FaHamburger className="text-white text-4xl mb-4" />
+              <h2 className="text-lg font-semibold">Total Dishes</h2>
+              <p className="text-3xl font-bold">{dishCount}</p>
             </div>
-            <div className="bg-gradient-to-r from-red-500 to-orange-500 p-8 rounded-xl shadow-xl hover:scale-105 transform transition duration-300 ease-in-out flex flex-col items-center">
-              <FaClipboardList className="text-white text-5xl mb-4" />
-              <h2 className="text-xl font-semibold text-white">Total Orders</h2>
-              <p className="text-5xl font-bold text-white">{orderCount}</p>
+            <div className="bg-gradient-to-r from-yellow-600 to-yellow-500 p-6 rounded-lg shadow-lg flex flex-col items-center transform hover:scale-105 transition-all duration-300">
+              <FaClipboardList className="text-white text-4xl mb-4" />
+              <h2 className="text-lg font-semibold">Total Orders</h2>
+              <p className="text-3xl font-bold">{orderCount}</p>
             </div>
           </div>
 
-          {/* Bar and Pie Chart Layout */}
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12">
+          {/* Charts Section */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Client Growth Bar Chart */}
-            <div className="col-span-1 w-full p-8 bg-gradient-to-r from-green-400 to-blue-500 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+            <div >
               <ClientBarChart />
             </div>
 
             {/* Client vs Order Pie Chart */}
-            <div className="col-span-1 w-full p-8 bg-gradient-to-r from-yellow-400 to-red-500 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+            <div >
               <ClientOrderPieChart />
             </div>
           </div>

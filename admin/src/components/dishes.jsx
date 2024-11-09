@@ -8,12 +8,12 @@ const Dishes = () => {
   const [dishes, setDishes] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Fetch dishes from the backend when the component mounts
+  
   useEffect(() => {
     const fetchDishes = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/admin/dishes");  // Replace with your backend route
-        setDishes(response.data);  // Store the fetched dishes in the state
+        const response = await axios.get("http://localhost:5000/api/admin/dishes");  
+        setDishes(response.data);  
       } catch (error) {
         console.error("Error fetching dishes:", error);
       }
@@ -22,7 +22,7 @@ const Dishes = () => {
     fetchDishes();
   }, []);
 
-  // Filter dishes based on the search query
+  
   const filteredDishes = dishes.filter((dish) =>
     dish.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -43,13 +43,13 @@ const Dishes = () => {
             placeholder="Search Dishes..."
             className="border border-gray-300 rounded-full p-2 pl-10 pr-4 w-full focus:outline-none focus:ring-2 focus:ring-yellow-300 transition duration-200"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}  // Update search query state on change
+            onChange={(e) => setSearchQuery(e.target.value)}  
           />
           <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500" />
         </div>
       </div>
 
-      {/* Display filtered dishes */}
+      
       <div className="mt-20 p-4">
         <h2 className="text-xl font-bold">Dishes</h2>
         <ul>
