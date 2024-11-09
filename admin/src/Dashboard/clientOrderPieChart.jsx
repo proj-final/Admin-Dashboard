@@ -13,8 +13,8 @@ const ClientOrderPieChart = () => {
       {
         label: "Clients vs Orders",
         data: [60, 40], // Fake percentage data (60% clients, 40% orders)
-        backgroundColor: ["rgba(39, 174, 96, 0.6)", "rgba(244, 67, 54, 0.6)"], // Green for Clients, Red for Orders
-        borderColor: ["rgba(39, 174, 96, 1)", "rgba(244, 67, 54, 1)"],
+        backgroundColor: ["rgba(38, 198, 218, 0.7)", "rgba(72, 61, 139, 0.7)"], // Blue for Clients, Purple for Orders
+        borderColor: ["rgba(38, 198, 218, 1)", "rgba(72, 61, 139, 1)"],
         borderWidth: 1,
       },
     ],
@@ -30,18 +30,20 @@ const ClientOrderPieChart = () => {
           size: 20,
           weight: "bold",
         },
-        color: "#2d3748", // Dark text for better readability
+        color: "#FFFFFF", // White text for the title
       },
       tooltip: {
-        backgroundColor: "#2d3748", // Dark tooltip background
-        titleColor: "#fff", // White title color
+        backgroundColor: "#4A4A4A", // Dark gray tooltip background
+        titleColor: "#fff", // White title text
         bodyColor: "#fff", // White body text
+        borderColor: "#fff", // White border for tooltips
+        borderWidth: 1,
       },
     },
   };
 
   return (
-    <div className="bg-white p-8 rounded-xl shadow-xl">
+    <div className="bg-gradient-to-r from-teal-500 to-blue-600 p-8 rounded-xl shadow-lg">
       <Pie data={data} options={options} />
     </div>
   );
